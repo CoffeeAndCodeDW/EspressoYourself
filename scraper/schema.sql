@@ -5,6 +5,9 @@ create table teams (
 	id integer primary key autoincrement, 
 	team text not null, 
 	size integer
+	mentor text, 
+	project text, 
+	languages blob
 ); 
 
 create table individuals (
