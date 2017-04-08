@@ -1,9 +1,57 @@
 import csv
+import sqlite3
+
+conn = sqlite3.connect('espresso.db')
+print(conn)
+c = conn.cursor()
+
+teams = [] 
+indivs = []
 with open('EspressoYourself.csv', newline='') as csvfile:
 	espresso = csv.reader(csvfile, delimiter=',', quotechar='|')
 
+	next(espresso)
+
 	for row in espresso :
-		print(row[10])
+		curr_team = {
+			"name" : row[1].lower(), 
+			"size" : row[2], 
+			"mentor" : row[3], 
+			"project" : row[4], 
+			"languages" : row[5],
+			}
+		can_append = True
+		for team in teams :
+			if curr_team["name"] == team["name"] :
+				can_append = False
+		if can_append :
+			teams.append(curr_team)
+
+		curr_indiv = {
+			"name" : row[6],
+			"major" : row[7],
+			"year" : row[8],
+			"hometown" : row[9],
+			"race" : row[10],
+			"languages" : row[11],
+			"gender" : row[12],
+			"hobbies" : row[13],
+			"experience" : row[14],
+			"codelanguages" : row[15],
+			"favoriteplace" : row[16],
+			"rolemodel" : row[17],
+			"pineapple" : row[18],
+			"coffee" : row[19],
+			"team" : row[1].lower(),
+		}
+		indivs.append(curr_indiv)
+
+print(teams)
+#print(indivs)
+
+#for indiv in indivs :
+#	print(indiv)
+
 
 	#while 1 == 1 : 
 	#	newlist = next(filereader)
