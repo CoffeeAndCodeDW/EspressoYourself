@@ -27,6 +27,6 @@ create table individuals (
 	prog_langs blob, 
 	spot text, 
 	role_model text, 
-	pineapple id, 
+	pineapple text, 
 	coffee_order blob
 );
