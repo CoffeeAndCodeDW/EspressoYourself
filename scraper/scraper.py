@@ -46,8 +46,11 @@ with open('EspressoYourself.csv', newline='') as csvfile:
 		}
 		indivs.append(curr_indiv)
 
-print(teams)
-#print(indivs)
+for team in teams :
+	c.execute("INSERT INTO teams (team, size, mentor, project, languages) VALUES (team["name"], int(team["size"]), team["mentor"], team["project"], team["languages"])")
+
+for indiv in indivs :
+	c.execute("INSERT INTO indivduals (name, )")
 
 #for indiv in indivs :
 #	print(indiv)
