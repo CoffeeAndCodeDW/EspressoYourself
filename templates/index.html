@@ -7,15 +7,15 @@
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+ <link href="{{ url_for('static', filename='css/materialize.min.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{{ url_for('static', filename='css/style.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
   <nav class="purple lighten-4" role="navigation">
     <div class="nav-wrapper container">
       <a id="logo-container" href="#" class="brand-logo white-text"> Digital Women Code Camp</a>
       <ul class="right hide-on-med-and-down">
-        <li> A site by Coffee& Code</li>
+        <li> A site by Coffee && Code</li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
@@ -31,17 +31,18 @@
         <br><br>
         <h1 class="header center brown-text text-lighten-1 ">Espresso Yourself</h1>
         <div class="row center">
-          <h5 class="header col s12 light ">  We are a group of diverse women, with different majors, backgrounds and nationalities. We speak different languages, (and other coding languages too!).
+          <h5 class="header col s12  brown-text text-lighten-1">  We are a group of diverse women, with different majors, backgrounds and nationalities. We speak different languages, (and other coding languages too!).
 		  Meet your fellow coders at Code Camp. Find out what you have on common, and how you can help each other. </h5>
         </div>
         <div class="row center">
-          <a href="file:///C:/Users/Student/Downloads/parallax-template/parallax-template/teams.html " id="download-button" class="btn-large waves-effect waves-light teal lighten-1"> Learn about the teams</a>
+          <a href="/teams" id="download-button" class="btn-large waves-effect waves-light teal lighten-1"> Learn about the teams</a>
         </div>
         <br><br>
 
       </div>
     </div>
-    <div class="parallax"><img src="background1.jpg" alt="Unsplashed background img 1"></div>
+    <!-- <div class="parallax"><img src="{{ url_for('static', filename='coffee.jpg')}}"'></div> -->
+    <div class="parallax"><img src="../static/coffee.jpg"'></div>
   </div>
 
 
@@ -85,10 +86,8 @@
 
 
   
-  <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
+  <script src="{{ url_for('static', filename='js/materialize.js') }}"></script>
 
   </body>
 </html>

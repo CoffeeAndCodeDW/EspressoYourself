@@ -22,7 +22,7 @@ def get_individuals(team):
 
 @app.route("/")
 def hello():
-    return "Welcome to Espresso Yourself! <br> Please excuse our mess."
+    return render_template("index.html")
 
 @app.route("/teams")
 def list_of_teams():
@@ -30,12 +30,13 @@ def list_of_teams():
 	team_lst = []
 	for team in teams: 
 		team_lst.append(team[1])
-	return "Teams: <br><br>" + "<br>".join([str(x) for x in team_lst])
+	print(team_lst)
+	return render_template("teams.html", teams = team_lst)
 
 @app.route("/teams/<team>")
 def team_page(team):
 	gals = get_individuals(team)
-	return "Members: <br><br>" + "<br>".join([str(x) for x in gals])
+	return "<style> body { font-size: 25px; } </style> Members: <br><br>" + "<br>".join([str(x) for x in gals])
 
 if __name__ == "__main__":
     app.run()
