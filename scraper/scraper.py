@@ -1,5 +1,5 @@
 import csv
-with open('', newline='') as csvfile:
-	spamreader = csv.reader(cvsfile, delimiter=' ', quotechar='|')
+with open('EspressoYourself.csv', newline='') as csvfile:
+	spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
 	for row in spamreader:
 		print(', '.join(row))
