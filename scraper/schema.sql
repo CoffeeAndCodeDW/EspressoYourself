@@ -4,7 +4,7 @@ drop table if exists individuals;
 create table teams (
 	id integer primary key autoincrement, 
 	team text not null, 
-	size integer
+	size integer,
 	mentor text, 
 	project text, 
 	languages blob

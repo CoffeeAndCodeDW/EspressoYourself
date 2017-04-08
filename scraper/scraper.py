@@ -36,21 +36,21 @@ with open('EspressoYourself.csv', newline='') as csvfile:
 			"languages" : row[11],
 			"gender" : row[12],
 			"hobbies" : row[13],
-			"experience" : row[14],
-			"codelanguages" : row[15],
-			"favoriteplace" : row[16],
-			"rolemodel" : row[17],
+			"coded" : row[14],
+			"prog_langs" : row[15],
+			"spot" : row[16],
+			"role_model" : row[17],
 			"pineapple" : row[18],
-			"coffee" : row[19],
+			"coffee_order" : row[19],
 			"team" : row[1].lower(),
 		}
 		indivs.append(curr_indiv)
 
 for team in teams :
-	c.execute("INSERT INTO teams (team, size, mentor, project, languages) VALUES (team["name"], int(team["size"]), team["mentor"], team["project"], team["languages"])")
+	c.execute("INSERT INTO teams (team, size, mentor, project, languages) VALUES (?, ?, ?, ?, ?)", (team["name"], int(team["size"]), team["mentor"], team["project"], team["languages"]))
 
 for indiv in indivs :
-	c.execute("INSERT INTO indivduals (name, )")
+	c.execute("INSERT INTO indivduals (name, major, year, hometown, race, languages, gender, hobbies, coded, prog_langs, spot, role_model, pineapple, coffee_order) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (indiv["name"]), indiv["major"], indiv["year"], indiv["hometown"], indiv["race"], indiv["languages"], indiv["gender"], indiv["hobbies"], indiv["coded"], indiv["prog_langs"], indiv["spot"], indiv["role_model"], indiv["pineapple"], indiv["coffee_order"], indiv["team"])
 
 #for indiv in indivs :
 #	print(indiv)
