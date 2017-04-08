@@ -25,5 +25,6 @@ create table individuals (
 	spot text, 
 	role_model text, 
 	pineapple text, 
-	coffee_order blob
+	coffee_order blob,
+	team text not null
 );
