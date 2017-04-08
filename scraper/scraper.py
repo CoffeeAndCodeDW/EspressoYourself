@@ -50,8 +50,10 @@ for team in teams :
 	c.execute("INSERT INTO teams (team, size, mentor, project, languages) VALUES (?, ?, ?, ?, ?)", (team["name"], int(team["size"]), team["mentor"], team["project"], team["languages"]))
 
 for indiv in indivs :
-	c.execute("INSERT INTO indivduals (name, major, year, hometown, race, languages, gender, hobbies, coded, prog_langs, spot, role_model, pineapple, coffee_order) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (indiv["name"]), indiv["major"], indiv["year"], indiv["hometown"], indiv["race"], indiv["languages"], indiv["gender"], indiv["hobbies"], indiv["coded"], indiv["prog_langs"], indiv["spot"], indiv["role_model"], indiv["pineapple"], indiv["coffee_order"], indiv["team"])
+	c.execute("INSERT INTO individuals (name, major, year, hometown, race, languages, gender, hobbies, coded, prog_langs, spot, role_model, pineapple, coffee_order, team) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (indiv["name"], indiv["major"], indiv["year"], indiv["hometown"], indiv["race"], indiv["languages"], indiv["gender"], indiv["hobbies"], indiv["coded"], indiv["prog_langs"], indiv["spot"], indiv["role_model"], indiv["pineapple"], indiv["coffee_order"], indiv["team"]))
 
+print(c.execute("SELECT mentor from teams WHERE id = 1").fetchall()[0][0])
+print(c.execute("SELECT name from individuals WHERE id = 1").fetchall())
 #for indiv in indivs :
 #	print(indiv)
 
